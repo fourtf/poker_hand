@@ -37,12 +37,12 @@ public class PokerHandTest {
     @Test
     void pair() {
         // double 6H
-        var sixes = PokerHand.of("2H", "3H", "4H", "6H", "6H");
+        var sixes = PokerHand.of("2H", "3H", "4S", "6H", "6H");
         assertEquals(PokerHand.Ranking.Pair, sixes.ranking());
         assertTrue(sixes.compareTo(badHand) > 0);
 
         // double 7H
-        var sevens = PokerHand.of("2H", "3H", "4H", "7H", "7H");
+        var sevens = PokerHand.of("2H", "3H", "4S", "7H", "7H");
         assertEquals(PokerHand.Ranking.Pair, sevens.ranking());
         assertTrue(sixes.compareTo(sevens) < 0);
     }

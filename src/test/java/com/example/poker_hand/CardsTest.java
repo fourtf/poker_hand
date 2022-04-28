@@ -2,6 +2,7 @@ package com.example.poker_hand;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +21,7 @@ public class CardsTest {
 
         var expected = ofStr(str);
 
-        var actualList = List.of(ofStr(str));
+        var actualList = new ArrayList<>(List.of(ofStr(str)));
         Collections.shuffle(actualList);
         var actual = Cards.sortedDescending(actualList.toArray(Card[]::new));
 
