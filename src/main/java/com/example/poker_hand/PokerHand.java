@@ -13,12 +13,15 @@ public class PokerHand implements Comparable<PokerHand> {
         this.cards = cards;
     }
 
-    static PokerHand of(String[] cardRepresentations) {
+    static PokerHand of(String... cardRepresentations) {
         return new PokerHand(Arrays.stream(cardRepresentations).map(Card::of).toArray(Card[]::new));
     }
 
     @Override
     public int compareTo(PokerHand o) {
-        return 0;
+
+
+        // high card
+        return Cards.compareHighCard(this.cards, o.cards);
     }
 }

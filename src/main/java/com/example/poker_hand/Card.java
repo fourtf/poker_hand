@@ -4,14 +4,16 @@ import java.util.Arrays;
 
 public class Card {
     public enum Rank {
-        _2('2'), _3('3'), _4('4'), _5('5'), _6('6'),
-        _7('7'), _8('8'), _9('9'), _10('T'),
-        Jack('J'), Queen('Q'), King('K'), Ace('A');
+        _2('2', 0), _3('3', 1), _4('4', 2), _5('5', 3), _6('6', 4),
+        _7('7', 5), _8('8', 6), _9('9', 7), _10('T', 8),
+        Jack('J', 9), Queen('Q', 10), King('K', 11), Ace('A', 12);
 
         public final char representation;
+        public final int value;
 
-        Rank(char representation) {
+        Rank(char representation, int value) {
             this.representation = representation;
+            this.value = value;
         }
 
         static Rank of(char representation) {
