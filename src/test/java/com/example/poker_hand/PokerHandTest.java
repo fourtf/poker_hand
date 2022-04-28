@@ -9,7 +9,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PokerHandTest {
-    PokerHand badHand = PokerHand.of("2H", "3H", "4S", "5S", "8H");
+    PokerHand badHand = PokerHand.of("2H", "3H", "4S", "5S", "6H");
 
     @Test
     void draw() {
@@ -35,11 +35,11 @@ public class PokerHandTest {
     @Test
     void pair() {
         // double 6H
-        var sixes = PokerHand.of("2H", "3H", "4H", "6H", "6H");
+        var sixes = PokerHand.of("2H", "3H", "4H", "6H", "8H");
         assertTrue(sixes.compareTo(badHand) > 0);
 
         // double 7H
-        var sevens = PokerHand.of("2H", "3H", "4H", "7H", "7H");
+        var sevens = PokerHand.of("2H", "3H", "4H", "7H", "QH");
         assertTrue(sixes.compareTo(sevens) < 0);
     }
 }
