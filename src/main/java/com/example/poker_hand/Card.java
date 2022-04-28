@@ -22,6 +22,12 @@ public class Card {
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException(String.format("%s is not a valid representation of Value")));
         }
+
+
+        @Override
+        public String toString() {
+            return "" + this.representation;
+        }
     }
 
     public enum Suit {
@@ -38,6 +44,11 @@ public class Card {
                     .filter((suit) -> suit.representation == representation)
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException(String.format("%s is not a valid representation of Suit")));
+        }
+
+        @Override
+        public String toString() {
+            return "" + this.representation;
         }
     }
 
@@ -59,5 +70,10 @@ public class Card {
         }
 
         return new Card(Rank.of(representation.charAt(0)), Suit.of(representation.charAt(1)));
+    }
+
+    @Override
+    public String toString() {
+        return rank.toString() + suit.toString();
     }
 }
