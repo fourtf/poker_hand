@@ -1,6 +1,7 @@
 package com.example.poker_hand;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Card {
     public enum Rank {
@@ -75,5 +76,18 @@ public class Card {
     @Override
     public String toString() {
         return rank.toString() + suit.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return rank == card.rank && suit == card.suit;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rank, suit);
     }
 }
